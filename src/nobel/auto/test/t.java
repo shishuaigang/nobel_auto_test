@@ -3,6 +3,7 @@ package nobel.auto.test;
 import io.appium.java_client.android.AndroidDriver;
 import nobel.auto.test.driver.Driver;
 import nobel.auto.test.page.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -25,18 +26,20 @@ public class t {
         ProduceProcess p3 = PageFactory.initElements(d, ProduceProcess.class);
         Home p4 = PageFactory.initElements(d, Home.class);
         Unlock p5 = PageFactory.initElements(d, Unlock.class);
-        if(loginWithAccount.isDisplayed()){
+        try {
             loginWithAccount.click();
             username.sendKeys("18121225109");
             password.sendKeys("123456");
             loginButton.click();
+        }catch (NoSuchElementException e){
+            System.out.println("处于已登录状态");
         }
         produceProcess.click();
         pre_processOperator.click();
-        if(unlock.isDisplayed()){
+        try{
             unlock.click();
-        }else if(!unlock.isDisplayed()){
-            System.out.println("未出现刷卡解锁，直接进行测试");
+        }catch (NoSuchElementException e){
+            System.out.println("已解锁，不需要使用刷卡解锁");
         }
         d.quit();
     }

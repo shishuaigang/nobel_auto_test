@@ -16,10 +16,11 @@ public class Driver {
 
     public AndroidDriver driver(){
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("deviceName","192.168.10.101:5555");
+        //capabilities.setCapability("deviceName","192.168.10.101:5555"); //windows
+        capabilities.setCapability("deviceName","192.168.56.101:5555");  //mac
         capabilities.setCapability("automationName","Appium");
         capabilities.setCapability("platformName","Android");
-        capabilities.setCapability("platformVersion","5.1");
+        capabilities.setCapability("platformVersion","6.0");
         capabilities.setCapability("appPackage","com.gongzhidao.nobel");
         capabilities.setCapability("appActivity",".login.SplashActivity");
         capabilities.setCapability("unicodeKeyboard","True");
