@@ -8,7 +8,7 @@ public class test {
     public static void main(String args[]){
         Driver driver = new Driver();
         AndroidDriver d = driver.driver();
-        QuickStart qs = new QuickStart(d);
+        QuickStart_1 qs = new QuickStart_1(d);
         qs.quickStart();
     }
 }
