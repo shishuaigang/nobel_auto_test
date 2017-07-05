@@ -21,7 +21,7 @@ public class testQuickStart {
 
     private AndroidDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod(){
         driver = new Driver().driver();
         //登录
@@ -54,7 +54,7 @@ public class testQuickStart {
         new QuickStart_3(driver).quickStart();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.quit();
     }
