@@ -1,19 +1,12 @@
 package nobel.auto.test.testcase;
 
 import io.appium.java_client.android.AndroidDriver;
-import nobel.auto.test.page.PreProcessOperator;
 import nobel.auto.test.page.ProcessOperator;
 import org.openqa.selenium.NoSuchElementException;
 
-import java.util.concurrent.TimeUnit;
-
-import static nobel.auto.test.page.CompleteRegister.cur_finish;
-import static nobel.auto.test.page.CompleteRegister.ok_btn;
 import static nobel.auto.test.page.Home.produceProcess;
-import static nobel.auto.test.page.OperatorInfo.completeRegister;
 import static nobel.auto.test.page.OperatorInfo.quickStart;
-import static nobel.auto.test.page.ProduceProcess.pre_processOperator;
-import static nobel.auto.test.page.ProduceProcess.processOperator;
+import static nobel.auto.test.page.ProduceProcess.*;
 import static nobel.auto.test.page.Unlock.unlock;
 
 public class QuickStart_3 {
