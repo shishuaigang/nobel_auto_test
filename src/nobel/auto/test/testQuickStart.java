@@ -38,20 +38,20 @@ public class testQuickStart {
     }
 
     @Test(groups = {"qucikstart"})
-    public void TestNgQuickStart_1() {
-        new QuickStart_1(driver).quickStart();
+    public void TestNgQuickStart_Beiliao() {
+        new QuickStart_BeiLiao(driver).quickStart();
         Assert.assertEquals("登记结果",driver.findElement(By.id("com.gongzhidao.nobel:id/dialog_title")).getText().trim());
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_1",groups = {"qucikstart"})
-    public void TestNgQuickStart_2() {
-        new QuickStart_2(driver).quickStart();
+    @Test(dependsOnMethods = "TestNgQuickStart_Beiliao",groups = {"qucikstart"})
+    public void TestNgQuickStart_Yuhun() {
+        new QuickStart_YuHun(driver).quickStart();
         Assert.assertEquals("登记结果",driver.findElement(By.id("com.gongzhidao.nobel:id/dialog_title")).getText().trim());
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_2",groups = {"qucikstart"})
-    public void TestNgQuickStart_3() {
-        new QuickStart_3(driver).quickStart();
+    @Test(dependsOnMethods = "TestNgQuickStart_Yuhun",groups = {"qucikstart"})
+    public void TestNgQuickStart_Jichu() {
+        new QuickStart_JiChu(driver).quickStart();
     }
 
     @AfterMethod(alwaysRun = true)

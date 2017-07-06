@@ -6,30 +6,30 @@ import org.openqa.selenium.NoSuchElementException;
 
 import java.util.concurrent.TimeUnit;
 
-import static nobel.auto.test.page.CompleteRegister.cur_finish;
-import static nobel.auto.test.page.CompleteRegister.ok_btn;
+import static nobel.auto.test.page.CompleteRegister.*;
 import static nobel.auto.test.page.Home.*;
+import static nobel.auto.test.page.PreProcessOperator.*;
 import static nobel.auto.test.page.ProduceProcess.*;
 import static nobel.auto.test.page.Unlock.*;
 import static nobel.auto.test.page.OperatorInfo.*;
 
 
-public class QuickStart_1 {
-    private AndroidDriver driver;
+public class QuickStart_BeiLiao extends CommonCase{
 
-    public QuickStart_1(AndroidDriver d) {
-        this.driver = d;
+    public QuickStart_BeiLiao(AndroidDriver d) {
+        super(d);
     }
 
     public void quickStart() {
-        produceProcess.click();
-        pre_processOperator.click();
+        produceProcess.click();  //生产工序
+        pre_processOperator.click();  //前置工序操作台
         //查看解锁界面
         try {
             unlock.click();
         } catch (NoSuchElementException e) {
             System.out.println("已解锁，不需要使用刷卡解锁");
         }
+        beiLiao.click();
         //查看test001工单是否存在
         try {
             PreProcessOperator.test001.click();

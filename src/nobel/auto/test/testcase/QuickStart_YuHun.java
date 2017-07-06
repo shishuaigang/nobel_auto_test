@@ -15,11 +15,10 @@ import static nobel.auto.test.page.ProduceProcess.pre_processOperator;
 import static nobel.auto.test.page.Unlock.unlock;
 
 
-public class QuickStart_2 {
-    private AndroidDriver driver;
+public class QuickStart_YuHun extends CommonCase{
 
-    public QuickStart_2(AndroidDriver d) {
-        this.driver = d;
+    public QuickStart_YuHun(AndroidDriver d) {
+        super(d);
     }
 
     public void quickStart() {

@@ -9,11 +9,10 @@ import static nobel.auto.test.page.OperatorInfo.quickStart;
 import static nobel.auto.test.page.ProduceProcess.*;
 import static nobel.auto.test.page.Unlock.unlock;
 
-public class QuickStart_3 {
-    private AndroidDriver driver;
+public class QuickStart_JiChu extends CommonCase{
 
-    public QuickStart_3(AndroidDriver d) {
-        this.driver = d;
+    public QuickStart_JiChu(AndroidDriver d) {
+        super(d);
     }
 
     public void quickStart() {
