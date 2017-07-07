@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+
 /**
  * Created by shishuaigang on 2017/7/4.
  * testng测试
@@ -68,7 +69,7 @@ public class testQuickStart {
 
     @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})
     public void TestNgQuickStart_Jichu() {
-        new QuickStart_JiChu(driver).quickStart();
+        new QuickStart_JiChu(driver).quick_start();
         System.out.println("快速开始--挤出 完成");
         System.out.println("下一测试项目：挤出-->质检");
     }
@@ -82,6 +83,12 @@ public class testQuickStart {
         System.out.println("下一测试项目：挤出--完成登记");
     }
 
+    @Test
+    public void TestNgQuickStart_Jichu_compReg() {
+        new QuickStart_JiChu(driver).completeRegister();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
+        System.out.println("挤出--完成登记 完成");
+    }
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.quit();
