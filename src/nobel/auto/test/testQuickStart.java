@@ -41,8 +41,7 @@ public class testQuickStart {
     }
 
     @Test(groups = {"test001"})
-    public void TestNgQuickStart_Beiliao()
-    {
+    public void TestNgQuickStart_Beiliao() {
         new QuickStart_BeiLiao(driver).quickStart();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'登记结果')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'已送往：')]")).isDisplayed());
@@ -70,12 +69,13 @@ public class testQuickStart {
     @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})
     public void TestNgQuickStart_Jichu() {
         new QuickStart_JiChu(driver).quick_start();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'异常处理')]")).isDisplayed());
         System.out.println("快速开始--挤出 完成");
         System.out.println("下一测试项目：挤出-->质检");
     }
 
     @Test(dependsOnMethods = "TestNgQuickStart_Jichu", groups = {"test001"})
-    public void TestNgToCheck() {
+    public void TestNgToCheck_Jichu() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'挤出/')]")).isDisplayed());
@@ -83,12 +83,35 @@ public class testQuickStart {
         System.out.println("下一测试项目：挤出--完成登记");
     }
 
-    @Test
+    @Test(dependsOnMethods = "TestNgToCheck_Jichu", groups = {"test001"})
     public void TestNgQuickStart_Jichu_compReg() {
         new QuickStart_JiChu(driver).completeRegister();
-        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
+        Assert.assertEquals
+                (true, driver.findElement
+                        (By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed(), "研磨中出现test001工单,pass");
         System.out.println("挤出--完成登记 完成");
+        System.out.println("下一测试项目：快速开始--研磨");
     }
+
+    @Test(dependsOnMethods = "TestNgQuickStart_Jichu_compReg", groups = {"test001"})
+    public void TestNgQuickStart_YanMo() {
+        new QuickStart_YanMo(driver).quick_start();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'异常处理')]")).isDisplayed());
+        System.out.println("快速开始--研磨 完成");
+        System.out.println("下一测试项目：研磨-->质检");
+    }
+
+    @Test(dependsOnMethods = "TestNgQuickStart_YanMo", groups = {"test001"})
+    public void TestNgToCheck_Yanmo() {
+        new ToCheck(driver).SongJian();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'研磨/')]")).isDisplayed());
+        System.out.println("研磨质检完成");
+        System.out.println("下一测试项目：异常处理-打回挤出，分2种情况");
+        System.out.println("1：不勾选工序完成，打回重量为166kg，研磨中test001还存在，挤出工序中test001会出现166这个数字");
+        System.out.println("2：勾选工序完成，打回重量为166kg，研磨中test001消失，挤出工序中test001会出现166这个数字");
+    }
+
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.quit();

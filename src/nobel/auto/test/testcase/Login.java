@@ -34,7 +34,7 @@ public class Login {
             password.sendKeys("123456");
             loginButton.click();
         } catch (NoSuchElementException e) {
-            System.out.println("已登录");
+            System.out.println("--------------------------");
         }
     }
 }
