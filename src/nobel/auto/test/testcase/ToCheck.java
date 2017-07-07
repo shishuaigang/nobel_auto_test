@@ -1,10 +1,13 @@
 package nobel.auto.test.testcase;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import org.openqa.selenium.NoSuchElementException;
 
+import static nobel.auto.test.page.CompleteRegister.ok_btn;
 import static nobel.auto.test.page.Home.*;
 import static nobel.auto.test.page.Unlock.unlock;
+import static nobel.auto.test.page.ZhiJian.QCwindowStatus;
 import static nobel.auto.test.page.ZhiJian.preQCscan;
 
 /**
@@ -28,5 +31,8 @@ public class ToCheck extends CommonCase{
         } catch (NoSuchElementException e) {
             System.out.println("已解锁，不需要使用刷卡解锁");
         }
+        ok_btn.click();
+        driver.pressKeyCode(AndroidKeyCode.BACK);
+        QCwindowStatus.click();
     }
 }

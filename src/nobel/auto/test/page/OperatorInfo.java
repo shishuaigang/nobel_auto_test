@@ -10,6 +10,15 @@ import org.openqa.selenium.support.FindBy;
 
 public class OperatorInfo {
 
+    @FindBy(id = "com.gongzhidao.nobel:id/tv_operate") //操作
+    public static WebElement operate;
+
+    @FindBy(id = "com.gongzhidao.nobel:id/tv_check_code") //详情
+    public static WebElement details;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'备注记录')]") //备注记录
+    public static WebElement commentHistory;
+
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'快速开始')]") //快速开始
     public static WebElement quickStart;
 

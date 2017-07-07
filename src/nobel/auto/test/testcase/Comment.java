@@ -4,8 +4,11 @@ import io.appium.java_client.android.AndroidDriver;
 import nobel.auto.test.page.PreProcessOperator;
 import org.openqa.selenium.NoSuchElementException;
 
+import static nobel.auto.test.page.CommentDetails.*;
 import static nobel.auto.test.page.Home.produceProcess;
 import static nobel.auto.test.page.OperatorInfo.comment;
+import static nobel.auto.test.page.OperatorInfo.commentHistory;
+import static nobel.auto.test.page.OperatorInfo.details;
 import static nobel.auto.test.page.PreProcessOperator.beiLiao;
 import static nobel.auto.test.page.ProduceProcess.pre_processOperator;
 import static nobel.auto.test.page.Unlock.unlock;
@@ -37,6 +40,10 @@ public class Comment extends CommonCase{
             System.out.println("未找到test001测试工单，请检查");
         }
         comment.click();
-
+        waitOP.click();
+        ok.click();
+        PreProcessOperator.test001.click();
+        details.click();
+        commentHistory.click();
     }
 }

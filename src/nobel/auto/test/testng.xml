@@ -3,7 +3,7 @@
     <test name="测试快速开始" preserver-order="true">
         <groups>
             <run>
-                <include name="qucikstart" />
+                <include name="test001" />
             </run>
         </groups>
 
