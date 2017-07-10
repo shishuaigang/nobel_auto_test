@@ -2,6 +2,7 @@ package nobel.auto.test.testcase;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
 import static nobel.auto.test.page.CompleteRegister.ok_btn;
@@ -30,6 +31,12 @@ public class ToCheck extends CommonCase{
             unlock.click();
         } catch (NoSuchElementException e) {
             System.out.println("已解锁，不需要使用刷卡解锁");
+        }
+        try{
+            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'300kg')]")).click();
+            ok_btn.click();
+        }catch (NoSuchElementException e){
+            System.out.println("挤出送检");
         }
         ok_btn.click();
         driver.pressKeyCode(AndroidKeyCode.BACK);

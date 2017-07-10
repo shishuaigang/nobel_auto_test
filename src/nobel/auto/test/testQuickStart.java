@@ -6,6 +6,7 @@ import nobel.auto.test.page.*;
 import nobel.auto.test.testcase.Login;
 import nobel.auto.test.testcase.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -38,6 +39,7 @@ public class testQuickStart {
         ProcessOperator p16 = PageFactory.initElements(driver, ProcessOperator.class);
         CommentDetails p17 = PageFactory.initElements(driver, CommentDetails.class);
         ZhiJian p18 = PageFactory.initElements(driver, ZhiJian.class);
+        AbnormityInfo p19 = PageFactory.initElements(driver, AbnormityInfo.class);
     }
 
     @Test(groups = {"test001"})
@@ -109,7 +111,29 @@ public class testQuickStart {
         System.out.println("研磨质检完成");
         System.out.println("下一测试项目：异常处理-打回挤出，分2种情况");
         System.out.println("1：不勾选工序完成，打回重量为166kg，研磨中test001还存在，挤出工序中test001会出现166这个数字");
-        System.out.println("2：勾选工序完成，打回重量为166kg，研磨中test001消失，挤出工序中test001会出现166这个数字");
+        System.out.println("2：勾选工序完成，打回重量为166kg，研磨中test001消失");
+    }
+
+    @Test(dependsOnMethods = "TestNgToCheck_Yanmo", groups = {"test001"})
+    public void TestNgExceptionHandle_1() {
+        new ExceptionalHandling(driver).withoutGongxuComplete();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'166 kg')]")).isDisplayed());
+        System.out.println("异常处理，不勾选工序完成");
+    }
+
+    @Test(dependsOnMethods = "TestNgToCheck_Yanmo", groups = {"test001"})
+    public void TestNgExceptionHandle_2() {
+        new ExceptionalHandling(driver).withGongxuComplete();
+        boolean zhi = false;
+        try{
+            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed();
+            zhi = true;
+        }catch (NoSuchElementException e){
+            zhi = false;
+        }
+        Assert.assertEquals(false, zhi);
+        System.out.println("异常处理，勾选工序完成");
     }
 
     @AfterMethod(alwaysRun = true)
