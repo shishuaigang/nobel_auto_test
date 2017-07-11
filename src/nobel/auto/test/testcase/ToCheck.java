@@ -33,7 +33,7 @@ public class ToCheck extends CommonCase{
             System.out.println("已解锁，不需要使用刷卡解锁");
         }
         try{
-            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'300kg')]")).click();
+            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'400kg')]")).click();
             ok_btn.click();
         }catch (NoSuchElementException e){
             System.out.println("挤出送检");

@@ -40,7 +40,7 @@ public class QuickStart_BeiLiao extends CommonCase{
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         PreProcessOperator.test001.click();
         completeRegister.click();
-        cur_finish.sendKeys("300");
+        cur_finish.sendKeys("450");
         ok_btn.click();
     }
 }

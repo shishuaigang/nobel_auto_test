@@ -27,4 +27,7 @@ public class ProcessOperator {
 
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'test001')]") //测试工单test001
     public static WebElement test001;
+
+    @FindBy(id = "com.gongzhidao.nobel:id/iv_middle_add") //第一个加号图标
+    public static WebElement addpic;
 }

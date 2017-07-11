@@ -40,6 +40,7 @@ public class testQuickStart {
         CommentDetails p17 = PageFactory.initElements(driver, CommentDetails.class);
         ZhiJian p18 = PageFactory.initElements(driver, ZhiJian.class);
         AbnormityInfo p19 = PageFactory.initElements(driver, AbnormityInfo.class);
+        DetailInfo p110 = PageFactory.initElements(driver, DetailInfo.class);
     }
 
     @Test(groups = {"test001"})
@@ -65,7 +66,25 @@ public class testQuickStart {
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'登记结果')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'已送往：')]")).isDisplayed());
         System.out.println("快速开始--预混完成");
+        System.out.println("下一测试项目：更改排班数量");
+    }
+
+    @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})
+    public void TestNgModify_quantity() {
+        new ModifyQuantity(driver).modifyQuantity();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'400 kg')]")).isDisplayed());
+        System.out.println("更改排班数量 完成");
+        System.out.println("下一测试项目：添加特殊工序");
+    }
+
+    @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})
+    public void TestNgAddSpecialProcess() {
+        new AddSpecialProcess(driver).addSpecialProcess();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'大清洗')]")).isDisplayed());
+        System.out.println("添加特殊工序 完成");
         System.out.println("下一测试项目：快速开始--挤出");
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'大清洗')]")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'工序完成')]")).click();
     }
 
     @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})

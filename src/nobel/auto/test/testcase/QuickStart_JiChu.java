@@ -49,7 +49,7 @@ public class QuickStart_JiChu extends CommonCase{
     public void completeRegister(){
         cOMMON();
         completeRegister.click();
-        cur_finish.sendKeys("300");
+        cur_finish.sendKeys("400");
         ok_btn.click();
         yanMo.click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
