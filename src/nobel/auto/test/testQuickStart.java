@@ -177,7 +177,7 @@ public class testQuickStart {
         ok_btn.click();
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_YanMo", groups = {"test001"})
+    @Test(dependsOnMethods = "TestNgWareHouseReject", groups = {"test001"})
     public void TestNgToCheck_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());

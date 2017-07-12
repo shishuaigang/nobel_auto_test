@@ -10,19 +10,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class WareHouseRegisterInfo {
 
-    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[0]/android.widget.EditText") //合格品
+    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[contains(@index,0)]/android.widget.EditText") //合格品
     public static WebElement acceptable;
 
-    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.EditText") //不良品
+    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[contains(@index,1)]/android.widget.EditText") //不良品
     public static WebElement rejects;
 
-    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.EditText") //半成品
+    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[contains(@index,2)]/android.widget.EditText") //半成品
     public static WebElement semi_manufactures;
 
-    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.EditText") //过筛品
+    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[contains(@index,3)]/android.widget.EditText") //过筛品
     public static WebElement sifting;
 
-    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[4]/android.widget.EditText") //废粉
+    @FindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[contains(@index,4)]/android.widget.EditText") //废粉
     public static WebElement scrap;
 
     @FindBy(id = "com.gongzhidao.nobel:id/add_result") //选择理由
