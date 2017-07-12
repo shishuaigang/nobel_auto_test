@@ -13,6 +13,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static nobel.auto.test.page.CompleteRegister.ok_btn;
+
 
 /**
  * Created by shishuaigang on 2017/7/4.
@@ -44,6 +46,7 @@ public class testQuickStart {
         UnBindInfo p53 = PageFactory.initElements(driver, UnBindInfo.class);
         WareHouseRegisterInfo p345 = PageFactory.initElements(driver, WareHouseRegisterInfo.class);
         WareHouse p5678 = PageFactory.initElements(driver, WareHouse.class);
+        WareHouseRejectInfo p56780 = PageFactory.initElements(driver, WareHouseRejectInfo.class);
     }
 
     @Test(groups = {"test001"})
@@ -156,6 +159,22 @@ public class testQuickStart {
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品:200kg')]")).isDisplayed());
         System.out.println("入库登记 完成");
         System.out.println("下一测试项目：拒收入库处理");
+    }
+
+    @Test(dependsOnMethods = "TestNgWareHouseRegister", groups = {"test001"})
+    public void TestNgWareHouseReject() {
+        new Reject(driver).rejectwarehouse();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'——  拒收信息  ——')]")).isDisplayed());
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'不良品：50kg')]")).isDisplayed());
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品：200kg')]")).isDisplayed());
+        System.out.println("拒收入库处理 完成");
+        System.out.println("下一测试项目：研磨--质检");
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'重新入库')]")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'数量修正')]")).click();
+        ok_btn.click();
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'重新入库')]")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'数量修正')]")).click();
+        ok_btn.click();
     }
 
     @Test(dependsOnMethods = "TestNgQuickStart_YanMo", groups = {"test001"})

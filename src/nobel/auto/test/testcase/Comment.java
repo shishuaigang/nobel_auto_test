@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import nobel.auto.test.page.PreProcessOperator;
 import org.openqa.selenium.NoSuchElementException;
 
+import static nobel.auto.test.page.AbnormityInfo.ok;
 import static nobel.auto.test.page.CommentDetails.*;
 import static nobel.auto.test.page.Home.produceProcess;
 import static nobel.auto.test.page.OperatorInfo.comment;
