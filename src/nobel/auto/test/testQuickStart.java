@@ -41,9 +41,34 @@ public class testQuickStart {
         ZhiJian p18 = PageFactory.initElements(driver, ZhiJian.class);
         AbnormityInfo p19 = PageFactory.initElements(driver, AbnormityInfo.class);
         DetailInfo p110 = PageFactory.initElements(driver, DetailInfo.class);
+        UnBindInfo p53 = PageFactory.initElements(driver, UnBindInfo.class);
     }
 
     @Test(groups = {"test001"})
+    public void TestNgUnBindEquip() {
+        new UnBind(driver).unBindEquip();
+        boolean zhi;
+        try {
+            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'EXT-201')]")).isDisplayed();
+            zhi = true;
+        } catch (NoSuchElementException e) {
+            zhi = false;
+        }
+        Assert.assertEquals(false, zhi);
+        System.out.println("解绑设备完成");
+        System.out.println("下一测试项目：绑定设备");
+    }
+
+    @Test(dependsOnMethods = "TestNgUnBindEquip", groups = {"test001"})
+    public void TestNgBindEquip() {
+        new Bind(driver).bindEquip();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'EXT-201')]")).isDisplayed())
+        ;
+        System.out.println("绑定设备完成");
+        System.out.println("下一测试项目：快速开始--备料--完成登记");
+    }
+
+    @Test(dependsOnMethods = "TestNgBindEquip", groups = {"test001"})
     public void TestNgQuickStart_Beiliao() {
         new QuickStart_BeiLiao(driver).quickStart();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'登记结果')]")).isDisplayed());
@@ -144,11 +169,11 @@ public class testQuickStart {
     @Test(dependsOnMethods = "TestNgToCheck_Yanmo", groups = {"test001"})
     public void TestNgExceptionHandle_2() {
         new ExceptionalHandling(driver).withGongxuComplete();
-        boolean zhi = false;
-        try{
+        boolean zhi;
+        try {
             driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed();
             zhi = true;
-        }catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             zhi = false;
         }
         Assert.assertEquals(false, zhi);
