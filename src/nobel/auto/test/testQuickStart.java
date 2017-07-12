@@ -42,6 +42,8 @@ public class testQuickStart {
         AbnormityInfo p19 = PageFactory.initElements(driver, AbnormityInfo.class);
         DetailInfo p110 = PageFactory.initElements(driver, DetailInfo.class);
         UnBindInfo p53 = PageFactory.initElements(driver, UnBindInfo.class);
+        WareHouseRegisterInfo p345 = PageFactory.initElements(driver, WareHouseRegisterInfo.class);
+        WareHouse p5678 = PageFactory.initElements(driver, WareHouse.class);
     }
 
     @Test(groups = {"test001"})
@@ -144,7 +146,16 @@ public class testQuickStart {
         new QuickStart_YanMo(driver).quick_start();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'异常处理')]")).isDisplayed());
         System.out.println("快速开始--研磨 完成");
-        System.out.println("下一测试项目：研磨-->质检");
+        System.out.println("下一测试项目：入库登记");
+    }
+
+    @Test(dependsOnMethods = "TestNgQuickStart_YanMo", groups = {"test001"})
+    public void TestNgWareHouseRegister() {
+        new WareHouseRegister(driver).wareHouseRegister();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'研磨入库')]")).isDisplayed());
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品:200kg')]")).isDisplayed());
+        System.out.println("入库登记 完成");
+        System.out.println("下一测试项目：拒收入库处理");
     }
 
     @Test(dependsOnMethods = "TestNgQuickStart_YanMo", groups = {"test001"})

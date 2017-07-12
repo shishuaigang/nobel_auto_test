@@ -42,4 +42,7 @@ public class OperatorInfo {
 
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'开始时间调整')]") //开始时间调整
     public static WebElement changeStartTime;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'入库登记')]") //入库登记
+    public static WebElement innerRegister;
 }
