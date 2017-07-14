@@ -208,6 +208,14 @@ public class testQuickStart {
     }
 
     @Test(dependsOnMethods = "TestNgToWarehouse", groups = {"test001"})
+    public void TestNgRegisterLocation(){
+        new RegisterLocation(driver).registerLoc();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'F201 : 200 kg')]")).isDisplayed());
+        System.out.println("库位登记完成");
+        System.out.println("下一测试项目：入库记录查询");
+    }
+
+    @Test(dependsOnMethods = "TestNgToWarehouse", groups = {"test001"})
     public void TestNgToCheck_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());

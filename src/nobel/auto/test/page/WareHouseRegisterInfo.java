@@ -28,6 +28,18 @@ public class WareHouseRegisterInfo {
     @FindBy(id = "com.gongzhidao.nobel:id/add_result") //选择理由
     public static WebElement choose_reason;
 
+    @FindBy(id = "com.gongzhidao.nobel:id/item_add_code") //登记按钮
+    public static WebElement register_btn;
+
+    @FindBy(id = "com.gongzhidao.nobel:id/btn_add") //添加按钮
+    public static WebElement add_btn;
+
+    @FindBy(id = "com.gongzhidao.nobel:id/item_ed_num") //登记数量
+    public static WebElement register_num;
+
+    @FindBy(id = "com.gongzhidao.nobel:id/item_ed_locat") //库位名字
+    public static WebElement warehouse_loc;
+
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'潮湿损坏')]") //潮湿损坏
     public static WebElement damp;
 
