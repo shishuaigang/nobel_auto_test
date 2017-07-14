@@ -46,7 +46,7 @@ public class testQuickStart {
         UnBindInfo p53 = PageFactory.initElements(driver, UnBindInfo.class);
         WareHouseRegisterInfo p345 = PageFactory.initElements(driver, WareHouseRegisterInfo.class);
         WareHouse p5678 = PageFactory.initElements(driver, WareHouse.class);
-        WareHouseRejectInfo p56780 = PageFactory.initElements(driver, WareHouseRejectInfo.class);
+        toTransferWarehouseInfo p56780 = PageFactory.initElements(driver, toTransferWarehouseInfo.class);
     }
 
     @Test(groups = {"test001"})
@@ -168,7 +168,7 @@ public class testQuickStart {
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'不良品：50kg')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品：200kg')]")).isDisplayed());
         System.out.println("拒收入库处理 完成");
-        System.out.println("下一测试项目：研磨--质检");
+        System.out.println("下一测试项目：待运输");
         driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'重新入库')]")).click();
         driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'数量修正')]")).click();
         ok_btn.click();
@@ -178,6 +178,36 @@ public class testQuickStart {
     }
 
     @Test(dependsOnMethods = "TestNgWareHouseReject", groups = {"test001"})
+    public void TestNgToTransfer(){
+        new ToTransferAndWarehouse(driver).toTranfer();
+        boolean zhi;
+        try {
+            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed();
+            zhi = true;
+        } catch (NoSuchElementException e) {
+            zhi = false;
+        }
+        Assert.assertEquals(false, zhi);
+        System.out.println("待运输完成");
+        System.out.println("下一测试项目：待入库");
+    }
+
+    @Test(dependsOnMethods = "TestNgToTransfer", groups = {"test001"})
+    public void TestNgToWarehouse(){
+        new ToTransferAndWarehouse(driver).toWarehouse();
+        boolean zhi;
+        try {
+            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed();
+            zhi = true;
+        } catch (NoSuchElementException e) {
+            zhi = false;
+        }
+        Assert.assertEquals(false, zhi);
+        System.out.println("待入库完成");
+        System.out.println("下一测试项目：库位登记正常");
+    }
+
+    @Test(dependsOnMethods = "TestNgToWarehouse", groups = {"test001"})
     public void TestNgToCheck_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());

@@ -9,7 +9,7 @@ import static nobel.auto.test.page.ProduceProcess.rejectsoultion;
 import static nobel.auto.test.page.Unlock.unlock;
 import static nobel.auto.test.page.WareHouse.back;
 import static nobel.auto.test.page.WareHouse.pre_transfer;
-import static nobel.auto.test.page.WareHouseRejectInfo.*;
+import static nobel.auto.test.page.toTransferWarehouseInfo.*;
 
 public class Reject extends CommonCase{
 
