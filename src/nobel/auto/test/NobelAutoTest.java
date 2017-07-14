@@ -21,7 +21,7 @@ import static nobel.auto.test.page.CompleteRegister.ok_btn;
  * testng测试
  */
 
-public class testQuickStart {
+public class NobelAutoTest {
 
     private AndroidDriver driver;
 
@@ -50,7 +50,7 @@ public class testQuickStart {
     }
 
     @Test(groups = {"test001"})
-    public void TestNgUnBindEquip() {
+    public void UnBindEquip() {
         new UnBind(driver).unBindEquip();
         boolean zhi;
         try {
@@ -64,8 +64,8 @@ public class testQuickStart {
         System.out.println("下一测试项目：绑定设备");
     }
 
-    @Test(dependsOnMethods = "TestNgUnBindEquip", groups = {"test001"})
-    public void TestNgBindEquip() {
+    @Test(dependsOnMethods = "UnBindEquip", groups = {"test001"})
+    public void BindEquip() {
         new Bind(driver).bindEquip();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'EXT-201')]")).isDisplayed())
         ;
@@ -73,8 +73,8 @@ public class testQuickStart {
         System.out.println("下一测试项目：快速开始--备料--完成登记");
     }
 
-    @Test(dependsOnMethods = "TestNgBindEquip", groups = {"test001"})
-    public void TestNgQuickStart_Beiliao() {
+    @Test(dependsOnMethods = "BindEquip", groups = {"test001"})
+    public void QuickStart_Beiliao() {
         new QuickStart_BeiLiao(driver).quickStart();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'登记结果')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'已送往：')]")).isDisplayed());
@@ -82,16 +82,16 @@ public class testQuickStart {
         System.out.println("下一测试项目：添加备注");
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_Beiliao", groups = {"test001"})
-    public void TestNgComment() {
+    @Test(dependsOnMethods = "QuickStart_Beiliao", groups = {"test001"})
+    public void Comment() {
         new Comment(driver).comments();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'等操作员')]")).isDisplayed());
         System.out.println("添加备注完成");
         System.out.println("下一测试项目：快速开始--预混--完成登记");
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_Beiliao", groups = {"test001"})
-    public void TestNgQuickStart_Yuhun() {
+    @Test(dependsOnMethods = "QuickStart_Beiliao", groups = {"test001"})
+    public void QuickStart_Yuhun() {
         new QuickStart_YuHun(driver).quickStart();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'登记结果')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'已送往：')]")).isDisplayed());
@@ -99,16 +99,16 @@ public class testQuickStart {
         System.out.println("下一测试项目：更改排班数量");
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})
-    public void TestNgModify_quantity() {
+    @Test(dependsOnMethods = "QuickStart_Yuhun", groups = {"test001"})
+    public void Modify_quantity() {
         new ModifyQuantity(driver).modifyQuantity();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'400 kg')]")).isDisplayed());
         System.out.println("更改排班数量 完成");
         System.out.println("下一测试项目：添加特殊工序");
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})
-    public void TestNgAddSpecialProcess() {
+    @Test(dependsOnMethods = "QuickStart_Yuhun", groups = {"test001"})
+    public void AddSpecialProcess() {
         new AddSpecialProcess(driver).addSpecialProcess();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'大清洗')]")).isDisplayed());
         System.out.println("添加特殊工序 完成");
@@ -117,16 +117,16 @@ public class testQuickStart {
         driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'工序完成')]")).click();
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_Yuhun", groups = {"test001"})
-    public void TestNgQuickStart_Jichu() {
+    @Test(dependsOnMethods = "QuickStart_Yuhun", groups = {"test001"})
+    public void QuickStart_Jichu() {
         new QuickStart_JiChu(driver).quick_start();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'异常处理')]")).isDisplayed());
         System.out.println("快速开始--挤出 完成");
         System.out.println("下一测试项目：挤出-->质检");
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_Jichu", groups = {"test001"})
-    public void TestNgToCheck_Jichu() {
+    @Test(dependsOnMethods = "QuickStart_Jichu", groups = {"test001"})
+    public void ZhiJian_Jichu() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'挤出/')]")).isDisplayed());
@@ -134,8 +134,8 @@ public class testQuickStart {
         System.out.println("下一测试项目：挤出--完成登记");
     }
 
-    @Test(dependsOnMethods = "TestNgToCheck_Jichu", groups = {"test001"})
-    public void TestNgQuickStart_Jichu_compReg() {
+    @Test(dependsOnMethods = "ZhiJian_Jichu", groups = {"test001"})
+    public void QuickStart_Jichu_compReg() {
         new QuickStart_JiChu(driver).completeRegister();
         Assert.assertEquals
                 (true, driver.findElement
@@ -144,16 +144,16 @@ public class testQuickStart {
         System.out.println("下一测试项目：快速开始--研磨");
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_Jichu_compReg", groups = {"test001"})
-    public void TestNgQuickStart_YanMo() {
+    @Test(dependsOnMethods = "QuickStart_Jichu_compReg", groups = {"test001"})
+    public void QuickStart_YanMo() {
         new QuickStart_YanMo(driver).quick_start();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'异常处理')]")).isDisplayed());
         System.out.println("快速开始--研磨 完成");
         System.out.println("下一测试项目：入库登记");
     }
 
-    @Test(dependsOnMethods = "TestNgQuickStart_YanMo", groups = {"test001"})
-    public void TestNgWareHouseRegister() {
+    @Test(dependsOnMethods = "QuickStart_YanMo", groups = {"test001"})
+    public void WareHouseRegister() {
         new WareHouseRegister(driver).wareHouseRegister();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'研磨入库')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品:200kg')]")).isDisplayed());
@@ -161,8 +161,8 @@ public class testQuickStart {
         System.out.println("下一测试项目：拒收入库处理");
     }
 
-    @Test(dependsOnMethods = "TestNgWareHouseRegister", groups = {"test001"})
-    public void TestNgWareHouseReject() {
+    @Test(dependsOnMethods = "WareHouseRegister", groups = {"test001"})
+    public void WareHouseReject() {
         new Reject(driver).rejectwarehouse();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'——  拒收信息  ——')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'不良品：50kg')]")).isDisplayed());
@@ -177,8 +177,8 @@ public class testQuickStart {
         ok_btn.click();
     }
 
-    @Test(dependsOnMethods = "TestNgWareHouseReject", groups = {"test001"})
-    public void TestNgToTransfer(){
+    @Test(dependsOnMethods = "WareHouseReject", groups = {"test001"})
+    public void ToTransfer(){
         new ToTransferAndWarehouse(driver).toTranfer();
         boolean zhi;
         try {
@@ -192,8 +192,8 @@ public class testQuickStart {
         System.out.println("下一测试项目：待入库");
     }
 
-    @Test(dependsOnMethods = "TestNgToTransfer", groups = {"test001"})
-    public void TestNgToWarehouse(){
+    @Test(dependsOnMethods = "ToTransfer", groups = {"test001"})
+    public void ToWarehouse(){
         new ToTransferAndWarehouse(driver).toWarehouse();
         boolean zhi;
         try {
@@ -207,16 +207,16 @@ public class testQuickStart {
         System.out.println("下一测试项目：库位登记正常");
     }
 
-    @Test(dependsOnMethods = "TestNgToWarehouse", groups = {"test001"})
-    public void TestNgRegisterLocation(){
+    @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
+    public void RegisterLocation(){
         new RegisterLocation(driver).registerLoc();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'F201 : 200 kg')]")).isDisplayed());
         System.out.println("库位登记完成");
         System.out.println("下一测试项目：入库记录查询");
     }
 
-    @Test(dependsOnMethods = "TestNgToWarehouse", groups = {"test001"})
-    public void TestNgToCheck_Yanmo() {
+    @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
+    public void ZhiJian_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'研磨/')]")).isDisplayed());
@@ -226,16 +226,16 @@ public class testQuickStart {
         System.out.println("2：勾选工序完成，打回重量为166kg，研磨中test001消失");
     }
 
-    @Test(dependsOnMethods = "TestNgToCheck_Yanmo", groups = {"test001"})
-    public void TestNgExceptionHandle_1() {
+    @Test(dependsOnMethods = "ZhiJian_Yanmo", groups = {"test001"})
+    public void ExceptionHandle_1() {
         new ExceptionalHandling(driver).withoutGongxuComplete();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'166 kg')]")).isDisplayed());
         System.out.println("异常处理，不勾选工序完成");
     }
 
-    @Test(dependsOnMethods = "TestNgToCheck_Yanmo", groups = {"test001"})
-    public void TestNgExceptionHandle_2() {
+    @Test(dependsOnMethods = "ZhiJian_Yanmo", groups = {"test001"})
+    public void ExceptionHandle_2() {
         new ExceptionalHandling(driver).withGongxuComplete();
         boolean zhi;
         try {

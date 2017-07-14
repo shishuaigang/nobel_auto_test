@@ -8,7 +8,7 @@
         </groups>
 
         <classes>
-            <class name="nobel.auto.test.testQuickStart" />
+            <class name="nobel.auto.test.NobelAutoTest" />
         </classes>
 
         <listeners>
