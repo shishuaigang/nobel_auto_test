@@ -216,6 +216,18 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
+    public void RecordSearch(){
+        new SearchInnerHistory(driver).searchHis();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品库        入库')]")).isDisplayed());
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品')]")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'不良品')]")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'查询')]")).click();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'不良品库        入库')]")).isDisplayed());
+        System.out.println("入库记录查询");
+        System.out.println("下一测试项目：入库记录查询");
+    }
+
+    @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
     public void ZhiJian_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
