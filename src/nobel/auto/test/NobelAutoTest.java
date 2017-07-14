@@ -228,6 +228,14 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
+    public void ModifyReason(){
+        new ModifyReason(driver).modifyReason();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'产品不良')]")).isDisplayed());
+        System.out.println("修改不良品入库原因");
+        System.out.println("下一测试项目：取样并填写质检结果");
+    }
+
+    @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
     public void ZhiJian_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());

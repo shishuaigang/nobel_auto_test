@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by shishuaigang on 2017/7/12.
- * 封装仓库拒收页面上的信息
+ * 封装带运输和待入库页面上的信息
  */
 public class toTransferWarehouseInfo {
 

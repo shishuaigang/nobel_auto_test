@@ -43,4 +43,9 @@ public class WareHouseRegisterInfo {
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'潮湿损坏')]") //潮湿损坏
     public static WebElement damp;
 
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'产品不良')]") //产品不良
+    public static WebElement badness;
+
+    @FindBy(id = "com.gongzhidao.nobel:id/item_edit_result") //修改原因
+    public static WebElement modifyReason;
 }
