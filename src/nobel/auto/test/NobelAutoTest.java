@@ -47,6 +47,7 @@ public class NobelAutoTest {
         WareHouseRegisterInfo p345 = PageFactory.initElements(driver, WareHouseRegisterInfo.class);
         WareHouse p5678 = PageFactory.initElements(driver, WareHouse.class);
         toTransferWarehouseInfo p56780 = PageFactory.initElements(driver, toTransferWarehouseInfo.class);
+        ZhiJianOperator p56721 = PageFactory.initElements(driver, ZhiJianOperator.class);
     }
 
     @Test(groups = {"test001"})

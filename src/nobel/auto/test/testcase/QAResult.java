@@ -25,7 +25,5 @@ public class QAResult extends CommonCase{
         takeAllSample.click();
         checkAndRegister.click();
         ok.click();
-        checkAndRegister.click();
-        ok.click();
     }
 }
