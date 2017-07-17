@@ -231,11 +231,34 @@ public class NobelAutoTest {
     public void ModifyReason(){
         new ModifyReason(driver).modifyReason();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'产品不良')]")).isDisplayed());
-        System.out.println("修改不良品入库原因");
+        System.out.println("修改不良品入库原因完成");
         System.out.println("下一测试项目：取样并填写质检结果");
     }
 
-    @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
+    @Test(dependsOnMethods = "ModifyReason", groups = {"test001"})
+    public void QuYang(){
+        new QAResult(driver).qaResult();
+        boolean zhi;
+        try {
+            driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed();
+            zhi = true;
+        } catch (NoSuchElementException e) {
+            zhi = false;
+        }
+        Assert.assertEquals(false, zhi);
+        System.out.println("取样并填写质检结果完成");
+        System.out.println("下一测试项目：修改质检结果");
+    }
+
+    @Test(dependsOnMethods = "QuYang", groups = {"test001"})
+    public void ModifyResult(){
+        new ModifyQAResult(driver).modifyResult();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'不合格：冲击不过 ')]")).isDisplayed());
+        System.out.println("修改质检结果完成");
+        System.out.println("下一测试项目：研磨质检");
+    }
+
+    @Test(dependsOnMethods = "ModifyResult", groups = {"test001"})
     public void ZhiJian_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());
