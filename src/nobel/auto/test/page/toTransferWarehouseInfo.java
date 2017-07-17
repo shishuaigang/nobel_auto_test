@@ -30,6 +30,6 @@ public class toTransferWarehouseInfo {
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'全部入库')]") //全部运输
     public static WebElement innerAll;
 
-    @FindBy(xpath = "//android.widget.TextView[contains(@text,'入库')]") //入库
+    @FindBy(id = "com.gongzhidao.nobel:id/tv_transport") //入库
     public static WebElement inner;
 }
