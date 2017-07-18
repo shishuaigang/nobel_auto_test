@@ -48,6 +48,7 @@ public class NobelAutoTest {
         WareHouse p5678 = PageFactory.initElements(driver, WareHouse.class);
         toTransferWarehouseInfo p56780 = PageFactory.initElements(driver, toTransferWarehouseInfo.class);
         ZhiJianOperator p56721 = PageFactory.initElements(driver, ZhiJianOperator.class);
+        RollBackSolution p34323 = PageFactory.initElements(driver, RollBackSolution.class);
     }
 
     @Test(groups = {"test001"})
@@ -179,7 +180,7 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "WareHouseReject", groups = {"test001"})
-    public void ToTransfer(){
+    public void ToTransfer() {
         new ToTransferAndWarehouse(driver).toTranfer();
         boolean zhi;
         try {
@@ -194,7 +195,7 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ToTransfer", groups = {"test001"})
-    public void ToWarehouse(){
+    public void ToWarehouse() {
         new ToTransferAndWarehouse(driver).toWarehouse();
         boolean zhi;
         try {
@@ -209,7 +210,7 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
-    public void RegisterLocation(){
+    public void RegisterLocation() {
         new RegisterLocation(driver).registerLoc();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'F201 : 200 kg')]")).isDisplayed());
         System.out.println("库位登记完成");
@@ -217,7 +218,7 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
-    public void RecordSearch(){
+    public void RecordSearch() {
         new SearchInnerHistory(driver).searchHis();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品库        入库')]")).isDisplayed());
         driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品')]")).click();
@@ -229,7 +230,7 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
-    public void ModifyReason(){
+    public void ModifyReason() {
         new ModifyReason(driver).modifyReason();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'产品不良')]")).isDisplayed());
         System.out.println("修改不良品入库原因完成");
@@ -237,7 +238,7 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ModifyReason", groups = {"test001"})
-    public void QuYang(){
+    public void QuYang() {
         new QAResult(driver).qaResult();
         boolean zhi;
         try {
@@ -252,7 +253,7 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "QuYang", groups = {"test001"})
-    public void ModifyResult(){
+    public void ModifyResult() {
         new ModifyQAResult(driver).modifyResult();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'不合格：冲击不过 ')]")).isDisplayed());
         System.out.println("修改质检结果完成");
@@ -260,6 +261,17 @@ public class NobelAutoTest {
     }
 
     @Test(dependsOnMethods = "ModifyResult", groups = {"test001"})
+    public void orderGuaQi() {
+        new ToDoGuaQi(driver).guaQi();
+        driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).click();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'工单恢复')]")).isDisplayed());
+        System.out.println("工单挂起完成");
+        System.out.println("下一测试项目：研磨质检");
+        new ToDoGuaQi(driver).huiFu();
+        Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'异常处理')]")).isDisplayed());
+    }
+
+    @Test(dependsOnMethods = "orderGuaQi", groups = {"test001"})
     public void ZhiJian_Yanmo() {
         new ToCheck(driver).SongJian();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'test001')]")).isDisplayed());

@@ -27,4 +27,7 @@ public class DetailInfo {
 
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'大清洗')]") //大清洗
     public static WebElement bigClean;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'纹理差异')]") //纹理差异
+    public static WebElement wenliDifference;
 }

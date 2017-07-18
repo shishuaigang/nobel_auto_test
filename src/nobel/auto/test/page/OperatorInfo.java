@@ -45,4 +45,7 @@ public class OperatorInfo {
 
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'入库登记')]") //入库登记
     public static WebElement innerRegister;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'工单恢复')]") //工单恢复
+    public static WebElement orderRollBack;
 }
