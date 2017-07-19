@@ -27,7 +27,11 @@ public class UnBind extends CommonCase{
             System.out.println("已解锁，不需要使用刷卡解锁");
         }
         jiChu.click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ext_201.click();
         unbind_btn.click();
         backBtn.click();
