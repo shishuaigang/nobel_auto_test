@@ -12,7 +12,7 @@ public class UnBindInfo {
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'解除绑定')]") //解除绑定按钮
     public static WebElement unbind_btn;
 
-    @FindBy(xpath = "//android.support.v7.widget.RecyclerView/android.widget.LinearLayout[contains(@index,1)]/android.widget.TextView[contains(@index,0)]") //ext201设备
+    @FindBy(xpath = "//android.support.v7.widget.RecyclerView/android.widget.LinearLayout[contains(@index,1)]") //ext201设备
     public static WebElement ext_201;
 
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'绑定本机')]") //绑定本机按钮
