@@ -92,7 +92,7 @@ public class NobelAutoTest {
         System.out.println("下一测试项目：快速开始--预混--完成登记");
     }
 
-    @Test(dependsOnMethods = "QuickStart_Beiliao", groups = {"test001"})
+    @Test(dependsOnMethods = "Comment", groups = {"test001"})
     public void QuickStart_Yuhun() {
         new QuickStart_YuHun(driver).quickStart();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'登记结果')]")).isDisplayed());
@@ -109,7 +109,7 @@ public class NobelAutoTest {
         System.out.println("下一测试项目：添加特殊工序");
     }
 
-    @Test(dependsOnMethods = "QuickStart_Yuhun", groups = {"test001"})
+    @Test(dependsOnMethods = "Modify_quantity", groups = {"test001"})
     public void AddSpecialProcess() {
         new AddSpecialProcess(driver).addSpecialProcess();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'大清洗')]")).isDisplayed());
@@ -119,7 +119,7 @@ public class NobelAutoTest {
         driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'工序完成')]")).click();
     }
 
-    @Test(dependsOnMethods = "QuickStart_Yuhun", groups = {"test001"})
+    @Test(dependsOnMethods = "AddSpecialProcess", groups = {"test001"})
     public void QuickStart_Jichu() {
         new QuickStart_JiChu(driver).quick_start();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'异常处理')]")).isDisplayed());
@@ -217,7 +217,7 @@ public class NobelAutoTest {
         System.out.println("下一测试项目：入库记录查询");
     }
 
-    @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
+    @Test(dependsOnMethods = "RegisterLocation", groups = {"test001"})
     public void RecordSearch() {
         new SearchInnerHistory(driver).searchHis();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'合格品库        入库')]")).isDisplayed());
@@ -229,7 +229,7 @@ public class NobelAutoTest {
         System.out.println("下一测试项目：入库记录查询");
     }
 
-    @Test(dependsOnMethods = "ToWarehouse", groups = {"test001"})
+    @Test(dependsOnMethods = "RecordSearch", groups = {"test001"})
     public void ModifyReason() {
         new ModifyReason(driver).modifyReason();
         Assert.assertEquals(true, driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'产品不良')]")).isDisplayed());
@@ -290,7 +290,7 @@ public class NobelAutoTest {
         System.out.println("异常处理，不勾选工序完成");
     }
 
-    @Test(dependsOnMethods = "ZhiJian_Yanmo", groups = {"test001"})
+    @Test(dependsOnMethods = "ExceptionHandle_1", groups = {"test001"})
     public void ExceptionHandle_2() {
         new ExceptionalHandling(driver).withGongxuComplete();
         boolean zhi;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="testng测试" parallel="true">
-    <test name="测试快速开始" preserver-order="true">
+    <test name="Nobel自动化测试" preserver-order="true">
         <groups>
             <run>
                 <include name="test001" />
