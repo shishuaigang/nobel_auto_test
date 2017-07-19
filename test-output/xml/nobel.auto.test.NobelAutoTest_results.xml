@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Nobel自动化测试"
+           tests="24"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="495.387">
+  <properties />
+  
+  
+            <testcase name="ZhiJian_Yanmo" time="12.770" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="WareHouseReject" time="34.215" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="RegisterLocation" time="21.800" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="ToTransfer" time="16.087" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="QuickStart_Yuhun" time="18.412" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="QuickStart_Beiliao" time="23.078" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="Comment" time="18.158" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="Modify_quantity" time="21.846" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="QuYang" time="18.147" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="ExceptionHandle_2" time="46.762" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="ModifyResult" time="6.708" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="UnBindEquip" time="26.221" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="AddSpecialProcess" time="14.421" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="ZhiJian_Jichu" time="23.749" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="QuickStart_YanMo" time="11.841" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="BindEquip" time="18.614" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="WareHouseRegister" time="38.960" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="ModifyReason" time="9.757" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="QuickStart_Jichu" time="12.240" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="RecordSearch" time="8.096" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="orderGuaQi" time="30.002" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="ExceptionHandle_1" time="24.329" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="ToWarehouse" time="15.638" classname="nobel.auto.test.NobelAutoTest" />
+                <testcase name="QuickStart_Jichu_compReg" time="23.536" classname="nobel.auto.test.NobelAutoTest" />
+      
+</testsuite>

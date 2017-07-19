@@ -31,6 +31,6 @@ public class AbnormityInfo {
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'工序完成')]") //工序完成按钮
     public static WebElement gongXuEnd;
 
-    @FindBy(xpath = "//android.widget.TextView[contains(@text,'挤出')]") //挤出
+    @FindBy(xpath = "//android.widget.LinearLayout[contains(@index,2)]//android.widget.TextView[contains(@index,0)]") //挤出
     public static WebElement jiCHU;
 }
