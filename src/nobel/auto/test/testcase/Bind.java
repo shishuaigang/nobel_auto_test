@@ -4,6 +4,8 @@ package nobel.auto.test.testcase;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.NoSuchElementException;
 
+import java.util.concurrent.TimeUnit;
+
 import static nobel.auto.test.page.Home.produceProcess;
 import static nobel.auto.test.page.ProcessOperator.*;
 import static nobel.auto.test.page.ProduceProcess.*;
@@ -25,6 +27,11 @@ public class Bind extends CommonCase{
             System.out.println("已解锁，不需要使用刷卡解锁");
         }
         jiChu.click();
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ext_201.click();
         bind_btn.click();
         backBtn.click();

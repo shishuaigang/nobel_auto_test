@@ -5,6 +5,8 @@ import nobel.auto.test.page.ProcessOperator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
+import java.util.concurrent.TimeUnit;
+
 import static nobel.auto.test.page.AbnormityInfo.*;
 import static nobel.auto.test.page.CompleteRegister.ok_btn;
 import static nobel.auto.test.page.Home.produceProcess;
@@ -38,6 +40,11 @@ public class ExceptionalHandling extends CommonCase {
         oneReason.click();
         ok.click();
         backFlow.click();
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         jiCHU.click();
         backCount.sendKeys("166");
     }
