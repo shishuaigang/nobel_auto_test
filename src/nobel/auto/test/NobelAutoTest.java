@@ -3,7 +3,6 @@ package nobel.auto.test;
 import io.appium.java_client.android.AndroidDriver;
 import nobel.auto.test.driver.Driver;
 import nobel.auto.test.page.*;
-import nobel.auto.test.testcase.Login;
 import nobel.auto.test.testcase.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -45,12 +44,15 @@ public class NobelAutoTest {
         toTransferWarehouseInfo p56780 = PageFactory.initElements(driver, toTransferWarehouseInfo.class);
         ZhiJianOperator p56721 = PageFactory.initElements(driver, ZhiJianOperator.class);
         RollBackSolution p34323 = PageFactory.initElements(driver, RollBackSolution.class);
-        //登录
+    }
+
+    @Test(groups = {"test001"})
+    public void login() {
         Login lo = new Login(driver);
         lo.login();
     }
 
-    @Test(groups = {"test001"})
+    @Test(dependsOnMethods = "login", groups = {"test001"})
     public void UnBindEquip() {
         new UnBind(driver).unBindEquip();
         boolean zhi;
