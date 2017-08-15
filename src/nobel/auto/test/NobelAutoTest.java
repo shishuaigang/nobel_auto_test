@@ -18,7 +18,6 @@ import static nobel.auto.test.page.CompleteRegister.ok_btn;
 
 /**
  * Created by shishuaigang on 2017/7/4.
- * testng测试
  */
 
 public class NobelAutoTest {
@@ -28,9 +27,6 @@ public class NobelAutoTest {
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         driver = new Driver().driver();
-        //登录
-        Login lo = new Login(driver);
-        lo.login();
         //初始化页面元素
         Home p10 = PageFactory.initElements(driver, Home.class);
         ProduceProcess p11 = PageFactory.initElements(driver, ProduceProcess.class);
@@ -49,6 +45,9 @@ public class NobelAutoTest {
         toTransferWarehouseInfo p56780 = PageFactory.initElements(driver, toTransferWarehouseInfo.class);
         ZhiJianOperator p56721 = PageFactory.initElements(driver, ZhiJianOperator.class);
         RollBackSolution p34323 = PageFactory.initElements(driver, RollBackSolution.class);
+        //登录
+        Login lo = new Login(driver);
+        lo.login();
     }
 
     @Test(groups = {"test001"})
