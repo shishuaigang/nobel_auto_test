@@ -31,7 +31,6 @@ public class Login {
     }
 
     public void login() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         LoginWithAccount p1 = PageFactory.initElements(driver, LoginWithAccount.class);
         LoginWithCard p2 = PageFactory.initElements(driver, LoginWithCard.class);
         ServerInfo p3 = PageFactory.initElements(driver, ServerInfo.class);

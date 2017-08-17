@@ -17,11 +17,7 @@ public class QAResult extends CommonCase{
     public void qaResult(){
         zhijian.click();
         QCoperator.click();
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         takeAllSample.click();
         checkAndRegister.click();
         ok.click();

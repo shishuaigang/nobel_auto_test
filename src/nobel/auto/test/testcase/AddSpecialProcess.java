@@ -10,20 +10,15 @@ import static nobel.auto.test.page.ProcessOperator.*;
 import static nobel.auto.test.page.ProduceProcess.*;
 import static nobel.auto.test.page.Unlock.*;
 
-public class AddSpecialProcess extends CommonCase{
-    public AddSpecialProcess(AndroidDriver d){
+public class AddSpecialProcess extends CommonCase {
+    public AddSpecialProcess(AndroidDriver d) {
         super(d);
     }
 
-    public void addSpecialProcess(){
+    public void addSpecialProcess() {
         produceProcess.click();
         processOperator.click();
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         addpic.click();
         addspecialprocess.click();
         bigClean.click();

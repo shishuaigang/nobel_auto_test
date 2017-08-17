@@ -10,20 +10,15 @@ import static nobel.auto.test.page.Unlock.unlock;
 import static nobel.auto.test.page.WareHouse.libRegister;
 import static nobel.auto.test.page.WareHouseRegisterInfo.*;
 
-public class RegisterLocation extends CommonCase{
-    public RegisterLocation(AndroidDriver d){
+public class RegisterLocation extends CommonCase {
+    public RegisterLocation(AndroidDriver d) {
         super(d);
     }
 
-    public void registerLoc(){
+    public void registerLoc() {
         warehouse.click();
         libRegister.click();
-        //解锁
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         register_btn.click();
         add_btn.click();
         register_num.click();

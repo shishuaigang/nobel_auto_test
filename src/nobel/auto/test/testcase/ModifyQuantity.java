@@ -16,21 +16,16 @@ import static nobel.auto.test.page.Unlock.*;
  * 添加特殊工单
  */
 
-public class ModifyQuantity extends CommonCase{
+public class ModifyQuantity extends CommonCase {
 
-    public ModifyQuantity(AndroidDriver d){
+    public ModifyQuantity(AndroidDriver d) {
         super(d);
     }
 
-    public void modifyQuantity(){
+    public void modifyQuantity() {
         produceProcess.click();
         processOperator.click();
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         ProcessOperator.jiChu.click();
         try {
             ProcessOperator.test001.click();

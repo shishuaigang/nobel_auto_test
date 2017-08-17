@@ -18,21 +18,16 @@ import static nobel.auto.test.page.Unlock.unlock;
  * Created by shishuaigang on 2017/7/6.
  * 添加备注记录，在备料快速开始后进行
  */
-public class Comment extends CommonCase{
+public class Comment extends CommonCase {
 
-    public Comment(AndroidDriver d){
+    public Comment(AndroidDriver d) {
         super(d);
     }
 
-    public void comments(){
+    public void comments() {
         produceProcess.click();  //生产工序
         pre_processOperator.click();  //前置工序操作台
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         beiLiao.click();
         //查看test001工单是否存在
         try {

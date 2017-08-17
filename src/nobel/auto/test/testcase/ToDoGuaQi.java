@@ -19,19 +19,15 @@ import static nobel.auto.test.page.ProduceProcess.processOperator;
 import static nobel.auto.test.page.RollBackSolution.changeWang;
 import static nobel.auto.test.page.Unlock.unlock;
 
-public class ToDoGuaQi extends CommonCase{
-    public ToDoGuaQi(AndroidDriver d){
+public class ToDoGuaQi extends CommonCase {
+    public ToDoGuaQi(AndroidDriver d) {
         super(d);
     }
 
-    public void guaQi(){
+    public void guaQi() {
         produceProcess.click();
         processOperator.click();
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         yanMo.click();
         test001.click();
         orderToDo.click();
@@ -39,7 +35,7 @@ public class ToDoGuaQi extends CommonCase{
         ok.click();
     }
 
-    public void huiFu(){
+    public void huiFu() {
         orderRollBack.click();
         RollBackSolution.solution.click();
         changeWang.click();

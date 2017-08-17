@@ -11,21 +11,16 @@ import static nobel.auto.test.page.WareHouse.back;
 import static nobel.auto.test.page.WareHouse.pre_transfer;
 import static nobel.auto.test.page.toTransferWarehouseInfo.*;
 
-public class Reject extends CommonCase{
+public class Reject extends CommonCase {
 
-    public Reject(AndroidDriver d){
+    public Reject(AndroidDriver d) {
         super(d);
     }
 
-    public void rejectwarehouse(){
+    public void rejectwarehouse() {
         warehouse.click();
         pre_transfer.click();
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         rej_btn.click();
         rej_reason.click();
         ok_btn.click();

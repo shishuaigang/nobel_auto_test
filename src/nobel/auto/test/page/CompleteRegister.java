@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by shishuaigang on 2017/7/4.
  * 封装点击 完成登记后 完成登记页面上的信息
- *
  */
 public class CompleteRegister {
 

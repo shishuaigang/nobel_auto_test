@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import static nobel.auto.test.page.AbnormityInfo.ok;
 import static nobel.auto.test.page.CompleteRegister.ok_btn;
 import static nobel.auto.test.page.Home.produceProcess;
+
 import nobel.auto.test.page.ProcessOperator;
 
 import static nobel.auto.test.page.OperatorInfo.innerRegister;
@@ -22,12 +23,7 @@ public class WareHouseRegister extends CommonCase {
     public void wareHouseRegister() {
         produceProcess.click();
         processOperator.click();
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         ProcessOperator.yanMo.click();
         ProcessOperator.test001.click();
         innerRegister.click();

@@ -18,11 +18,7 @@ public class ModifyReason extends CommonCase {
     public void modifyReason() {
         zhijian.click();
         innerHistory.click();
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         modifyReason.click();
         badness.click();
         ok.click();

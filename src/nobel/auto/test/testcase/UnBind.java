@@ -12,12 +12,12 @@ import static nobel.auto.test.page.ProduceProcess.*;
 import static nobel.auto.test.page.UnBindInfo.*;
 import static nobel.auto.test.page.Unlock.unlock;
 
-public class UnBind extends CommonCase{
-    public UnBind(AndroidDriver d){
+public class UnBind extends CommonCase {
+    public UnBind(AndroidDriver d) {
         super(d);
     }
 
-    public void unBindEquip(){
+    public void unBindEquip() {
         produceProcess.click();  //生产工序
         unbundledEquip.click();  //解绑设备
         //解锁

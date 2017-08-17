@@ -15,7 +15,7 @@ import static nobel.auto.test.page.ProduceProcess.pre_processOperator;
 import static nobel.auto.test.page.Unlock.unlock;
 
 
-public class QuickStart_YuHun extends CommonCase{
+public class QuickStart_YuHun extends CommonCase {
 
     public QuickStart_YuHun(AndroidDriver d) {
         super(d);
@@ -24,12 +24,7 @@ public class QuickStart_YuHun extends CommonCase{
     public void quickStart() {
         produceProcess.click();
         pre_processOperator.click();
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         //切换到预混，查看test001工单是否存在
         PreProcessOperator.yuHun.click();
         try {

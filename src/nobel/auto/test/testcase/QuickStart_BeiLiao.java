@@ -14,7 +14,7 @@ import static nobel.auto.test.page.Unlock.*;
 import static nobel.auto.test.page.OperatorInfo.*;
 
 
-public class QuickStart_BeiLiao extends CommonCase{
+public class QuickStart_BeiLiao extends CommonCase {
 
     public QuickStart_BeiLiao(AndroidDriver d) {
         super(d);
@@ -23,12 +23,7 @@ public class QuickStart_BeiLiao extends CommonCase{
     public void quickStart() {
         produceProcess.click();  //生产工序
         pre_processOperator.click();  //前置工序操作台
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         beiLiao.click();
         //查看test001工单是否存在
         try {

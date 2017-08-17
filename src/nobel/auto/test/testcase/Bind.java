@@ -12,20 +12,16 @@ import static nobel.auto.test.page.ProduceProcess.*;
 import static nobel.auto.test.page.UnBindInfo.*;
 import static nobel.auto.test.page.Unlock.unlock;
 
-public class Bind extends CommonCase{
-    public Bind(AndroidDriver d){
+public class Bind extends CommonCase {
+    public Bind(AndroidDriver d) {
         super(d);
     }
 
-    public void bindEquip(){
+    public void bindEquip() {
         produceProcess.click();  //生产工序
-        bindEquip.click();  //解绑设备
+        bindEquip.click();  //绑定设备
         //解锁
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         jiChu.click();
         try {
             TimeUnit.SECONDS.sleep(4);

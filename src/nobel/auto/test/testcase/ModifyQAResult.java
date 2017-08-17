@@ -9,19 +9,15 @@ import static nobel.auto.test.page.Unlock.unlock;
 import static nobel.auto.test.page.ZhiJian.QChistory;
 import static nobel.auto.test.page.ZhiJianOperator.*;
 
-public class ModifyQAResult extends CommonCase{
-    public ModifyQAResult(AndroidDriver d){
+public class ModifyQAResult extends CommonCase {
+    public ModifyQAResult(AndroidDriver d) {
         super(d);
     }
 
-    public void modifyResult(){
+    public void modifyResult() {
         zhijian.click();
         QChistory.click();
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         modifyresult.click();
         chongjiBuGuo.click();
         ok.click();

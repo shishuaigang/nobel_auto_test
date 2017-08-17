@@ -16,26 +16,20 @@ import static nobel.auto.test.page.ZhiJian.preQCscan;
  * 送检case
  */
 
-public class ToCheck extends CommonCase{
+public class ToCheck extends CommonCase {
 
-    public ToCheck(AndroidDriver d){
+    public ToCheck(AndroidDriver d) {
         super(d);
     }
 
     public void SongJian() {
         zhijian.click();
         preQCscan.click();
-
-        //画面解锁
+        CommonCase.unlock();
         try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
-        try{
             driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'400kg')]")).click();
             ok_btn.click();
-        }catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             System.out.println("挤出送检");
         }
         ok_btn.click();

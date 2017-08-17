@@ -16,21 +16,16 @@ import static nobel.auto.test.page.ProcessOperator.yanMo;
 import static nobel.auto.test.page.ProduceProcess.processOperator;
 import static nobel.auto.test.page.Unlock.unlock;
 
-public class QuickStart_YanMo extends CommonCase{
+public class QuickStart_YanMo extends CommonCase {
 
     public QuickStart_YanMo(AndroidDriver d) {
         super(d);
     }
 
-    private void cOMMON(){
+    private void cOMMON() {
         produceProcess.click();
         processOperator.click();
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         ProcessOperator.yanMo.click();
         try {
             ProcessOperator.test001.click();
@@ -38,7 +33,8 @@ public class QuickStart_YanMo extends CommonCase{
             System.out.println("未找到test001测试工单，请检查");
         }
     }
-    public void quick_start(){
+
+    public void quick_start() {
         cOMMON();
         quickStart.click();
         try {
@@ -48,7 +44,7 @@ public class QuickStart_YanMo extends CommonCase{
         }
     }
 
-    public void completeRegister(){
+    public void completeRegister() {
         cOMMON();
         completeRegister.click();
         cur_finish.sendKeys("300");

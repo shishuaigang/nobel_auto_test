@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginWithCard {
 
-    @FindBy(id="com.gongzhidao.nobel:id/iv_superuserlogin") //账号登陆按钮
+    @FindBy(id = "com.gongzhidao.nobel:id/iv_superuserlogin") //账号登陆按钮
     public static WebElement loginWithAccount;
 
-    @FindBy(id="com.gongzhidao.nobel:id/iv_setting") //设置按钮，选择服务器
+    @FindBy(id = "com.gongzhidao.nobel:id/iv_setting") //设置按钮，选择服务器
     public static WebElement setting;
 
 }

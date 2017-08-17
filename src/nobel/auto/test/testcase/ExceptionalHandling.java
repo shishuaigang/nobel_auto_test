@@ -20,15 +20,10 @@ public class ExceptionalHandling extends CommonCase {
         super(d);
     }
 
-    public void cOmmon(){
+    public void cOmmon() {
         produceProcess.click();
         processOperator.click();
-        //查看解锁界面
-        try {
-            unlock.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("已解锁，不需要使用刷卡解锁");
-        }
+        CommonCase.unlock();
         ProcessOperator.yanMo.click();
         try {
             ProcessOperator.test001.click();
@@ -49,7 +44,7 @@ public class ExceptionalHandling extends CommonCase {
         backCount.sendKeys("166");
     }
 
-    public void withGongxuComplete(){
+    public void withGongxuComplete() {
         cOmmon();
         gongXuEnd.click();
         ok_btn.click();
@@ -61,7 +56,7 @@ public class ExceptionalHandling extends CommonCase {
         }
     }
 
-    public void withoutGongxuComplete(){
+    public void withoutGongxuComplete() {
         cOmmon();
         ok_btn.click();
         ProcessOperator.jiChu.click();
